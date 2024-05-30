@@ -3,15 +3,21 @@
 import { FaLinkedin } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { IoLogoGithub } from "react-icons/io";
+import { FaDocker } from "react-icons/fa6";
 import Reveal from "./Reveal";
 
 export default function ContactLinksVerticalBar() {
   const modifier: string =
-    "scale-[1.6] shadow-sm text-green-800/75 hover:text-green-600 hover:shadow-2xl transition-transform duration-300 ease-in-out hover:scale-[1.7] hover:-translate-y-1";
+    "scale-[1.6] shadow-sm text-green-800/75 hover:text-green-600 hover:shadow-2xl transition-transform duration-300 ease-in-out hover:scale-[1.7] hover:-translate-y-1 cursor-pointer";
 
   function handleGitHub() {
     window.open("https://github.com/JaimeZepeda08", "_blank");
   }
+
+  function handleDocker() {
+    window.open("https://hub.docker.com/repositories/jaimezepeda08", "_blank");
+  }
+
   function handleLinkedIn() {
     window.open(
       "http://www.linkedin.com/in/jaime-zepeda-pina-98a313292",
@@ -29,9 +35,12 @@ export default function ContactLinksVerticalBar() {
         <IoLogoGithub onClick={handleGitHub} className={modifier} />
       </Reveal>
       <Reveal delay={0.4}>
-        <FaLinkedin onClick={handleLinkedIn} className={modifier} />
+        <FaDocker onClick={handleDocker} className={modifier} />
       </Reveal>
       <Reveal delay={0.6}>
+        <FaLinkedin onClick={handleLinkedIn} className={modifier} />
+      </Reveal>
+      <Reveal delay={0.8}>
         <AiFillInstagram onClick={handleInstagram} className={modifier} />
       </Reveal>
       <Reveal>

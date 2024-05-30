@@ -1,11 +1,14 @@
 import { AiOutlineExport } from "react-icons/ai";
 import { FaRegFolder } from "react-icons/fa6";
+import { MdOutlinePermMedia } from "react-icons/md";
 
 type SmallProjectItemProps = {
   title: string;
   description: string;
   skills: string[];
   url?: string;
+  media?: string[][];
+  showMedia: (media: string[][] | undefined) => void;
 };
 
 const SmallProjectItem: React.FC<SmallProjectItemProps> = ({
@@ -13,6 +16,8 @@ const SmallProjectItem: React.FC<SmallProjectItemProps> = ({
   description,
   skills,
   url,
+  media,
+  showMedia,
 }) => {
   function handleClick() {
     if (url) {
@@ -20,14 +25,30 @@ const SmallProjectItem: React.FC<SmallProjectItemProps> = ({
     }
   }
 
+  function handleMedia() {
+    if (media) {
+      showMedia(media);
+    }
+  }
+
   return (
-    <div className="group flex-col h-fit p-5 bg-green-900/40 rounded-md shadow-sm transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+    <div className="group relative flex-col h-fit p-5 bg-green-900/40 rounded-md shadow-sm transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
       <div className="flex items-center justify-between mb-2">
         <FaRegFolder className="text-green-700/50 scale-[2.5] mx-2 mt-4" />
-        <AiOutlineExport
-          onClick={handleClick}
-          className="hover:text-green-600 scale-125"
-        />
+        <div className="flex gap-4">
+          {media && (
+            <MdOutlinePermMedia
+              onClick={handleMedia}
+              className="hover:text-green-600 scale-125 cursor-pointer"
+            />
+          )}
+          {url && (
+            <AiOutlineExport
+              onClick={handleClick}
+              className="hover:text-green-600 scale-125 cursor-pointer"
+            />
+          )}
+        </div>
       </div>
 
       <br />

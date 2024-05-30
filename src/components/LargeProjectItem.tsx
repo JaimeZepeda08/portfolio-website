@@ -6,7 +6,9 @@ type LargeProjectItemProps = {
   description: string;
   skills: string[];
   image: string;
-  url: string;
+  url?: string;
+  media?: string[][];
+  showMedia: (media: string[][] | undefined) => void;
   index: number;
 };
 
@@ -16,16 +18,24 @@ const LargeProjectItem: React.FC<LargeProjectItemProps> = ({
   skills,
   image,
   url,
+  media,
+  showMedia,
   index,
 }) => {
-  function handleClick() {
+  function handleLearnMore() {
     if (url) {
       window.open(url, "_blank");
     }
   }
 
+  function handleMedia() {
+    if (media) {
+      showMedia(media);
+    }
+  }
+
   return (
-    <div className="group flex w-2/3 my-4 p-2 items-center rounded-md group transition-transform duration-300 ease-in-out hover:scale-[1.02]">
+    <div className="group flex w-2/3 my-4 p-2 items-center rounded-md transition-transform duration-300 ease-in-out hover:scale-[1.02]">
       {index % 2 === 0 ? (
         <div className="relative w-2/5 h-2/5">
           <img src={image} className="w-full h-full rounded-xl shadow-md" />
@@ -57,11 +67,24 @@ const LargeProjectItem: React.FC<LargeProjectItemProps> = ({
         </ul>
 
         <div className={`flex ${index % 2 === 0 ? "justify-end" : ""}`}>
-          <div className="flex items-center hover:text-green-600 w-fit">
-            <AiOutlineExport onClick={handleClick} className="scale-125 m-2" />
-            <p className="hidden group-hover:block underline-effect">
-              Learn More
-            </p>
+          <div className="flex gap-4 items-center">
+            {media && (
+              <MdOutlinePermMedia
+                onClick={handleMedia}
+                className="hover:text-green-600 w-fit cursor-pointer scale-125"
+              />
+            )}
+            {url && (
+              <div
+                onClick={handleLearnMore}
+                className="group flex items-center hover:text-green-600 w-fit cursor-pointer"
+              >
+                <AiOutlineExport className="scale-125 m-2" />
+                <p className="hidden group-hover:block underline-effect">
+                  Learn More
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>

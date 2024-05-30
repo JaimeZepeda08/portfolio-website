@@ -31,7 +31,7 @@ const WorkItem: React.FC<WorkItemProps> = ({
       </div>
       <div
         onClick={handleExpand}
-        className="group transition-transform duration-300 ease-in-out hover:scale-[1.01]"
+        className="group transition-transform duration-300 ease-in-out hover:scale-[1.01] cursor-pointer"
       >
         <div className="flex items-center text-lg ">
           <span className="text-xl mr-1">{company}</span> |

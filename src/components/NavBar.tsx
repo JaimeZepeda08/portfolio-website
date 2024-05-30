@@ -31,7 +31,7 @@ export default function NavBar() {
               <a
                 href="/Resume.pdf"
                 target="_blank"
-                className="m-4 text-xl hover:text-green-600 transition-colors duration-200 underline-effect"
+                className="m-4 text-xl hover:text-green-600 transition-colors duration-200 underline-effect cursor-alias"
               >
                 Resume
               </a>

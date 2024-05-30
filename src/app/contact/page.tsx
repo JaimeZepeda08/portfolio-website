@@ -43,7 +43,7 @@ export default function Home() {
       <Reveal delay={0.3}>
         <p
           onClick={handleGitLink}
-          className="text-gray-400 mt-20 underline-effect hover:text-green-600"
+          className="text-gray-400 mt-20 underline-effect hover:text-green-600 cursor-pointer"
         >
           Designed & Built by Jaime Zepeda
         </p>

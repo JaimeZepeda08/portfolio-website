@@ -5,6 +5,7 @@ import LargeProjectItem from "@/components/LargeProjectItem";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import Reveal from "@/components/Reveal";
 import SmallProjectItem from "@/components/SmallProjectItem";
+import VideoPlayer from "@/components/VideoPlayer";
 import WorkItem from "@/components/WorkItem";
 import { useEffect, useState } from "react";
 import { MdOutlineCheckBox } from "react-icons/md";
@@ -15,6 +16,7 @@ type ProjectItem = {
   description: string;
   skills: string[];
   url: string;
+  media?: string[][];
   image: string;
   filters: string[];
 };
@@ -30,6 +32,9 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   const [showMore, setShowMore] = useState(false);
+
+  const [showVideo, setShowVideo] = useState(false);
+  const [video, setVideo] = useState<string[][]>([]);
 
   const [all, setAll] = useState(true);
   const [SD, setSD] = useState(false);
@@ -85,6 +90,18 @@ export default function Home() {
     }, 100);
   }
 
+  function handleMedia(media: string[][] | undefined) {
+    if (media && media.length > 0) {
+      setVideo(media);
+      setShowVideo(true);
+    }
+  }
+
+  function handleCloseVideo() {
+    setShowVideo(false);
+    setVideo([]);
+  }
+
   const WorkExperience: WorkItem[] = [
     {
       company: "NBO7",
@@ -124,6 +141,7 @@ export default function Home() {
       url: "",
       image: "six-of-badgers.jpeg",
       filters: ["SD", "WD"],
+      media: undefined,
     },
     {
       title: "Run Track Pro",
@@ -131,8 +149,9 @@ export default function Home() {
         "Worked with a team to create an Android App in Java for runners. Users can track their runs and view statistics of their progress over time. We used an SQLite database to store run information, and the Google Maps API to track runs and display real-time data such as distance, pace, and route taken by the user.",
       skills: ["Android Studio", "Java", "Google Maps API", "SQLite"],
       image: "run-track-pro.jpeg",
-      url: "",
+      url: "https://github.com/rzadluka/RunTrackPro",
       filters: ["SD", "MD"],
+      media: undefined,
     },
     {
       title: "Spikes",
@@ -142,6 +161,10 @@ export default function Home() {
       image: "spikes.png",
       url: "",
       filters: ["ML"],
+      media: [
+        ["videos/spikes-train.mov", "AI model training"],
+        ["videos/spikes-demo.mov", "Trained model playing the game"],
+      ],
     },
     {
       title: "To Do List App",
@@ -151,6 +174,7 @@ export default function Home() {
       image: "to-do.jpeg",
       url: "",
       filters: ["SD", "MD"],
+      media: undefined,
     },
   ];
 
@@ -163,6 +187,7 @@ export default function Home() {
       url: "",
       image: "",
       filters: ["SD"],
+      media: undefined,
     },
     {
       title: "Chess v2",
@@ -172,6 +197,7 @@ export default function Home() {
       url: "",
       image: "",
       filters: ["SD"],
+      media: undefined,
     },
     {
       title: "Tetris",
@@ -181,6 +207,7 @@ export default function Home() {
       url: "",
       image: "",
       filters: ["SD"],
+      media: undefined,
     },
     {
       title: "Dino",
@@ -190,6 +217,12 @@ export default function Home() {
       url: "",
       image: "",
       filters: ["ML"],
+      media: [
+        [
+          "videos/dino-train.mov",
+          "AI model training and getting progressively better",
+        ],
+      ],
     },
     {
       title: "Rat Population Analysis",
@@ -199,6 +232,7 @@ export default function Home() {
       url: "/rat-analysis.html",
       image: "",
       filters: ["ML"],
+      media: undefined,
     },
     {
       title: "Snake",
@@ -208,6 +242,7 @@ export default function Home() {
       url: "",
       image: "",
       filters: ["SD"],
+      media: [["/videos/snake.mov", "AI agent using A* to play the game"]],
     },
     {
       title: "2048",
@@ -217,6 +252,7 @@ export default function Home() {
       url: "",
       image: "",
       filters: ["SD"],
+      media: [["videos/2048-512.mov", "Simple algorithm playing the game"]],
     },
     {
       title: "Bubble Trouble",
@@ -226,6 +262,7 @@ export default function Home() {
       url: "",
       image: "",
       filters: ["SD"],
+      media: undefined,
     },
     {
       title: "Personal Portfolio v1",
@@ -235,6 +272,7 @@ export default function Home() {
       url: "https://jaimezepeda08.github.io/",
       image: "",
       filters: ["WD"],
+      media: undefined,
     },
   ];
 
@@ -278,7 +316,7 @@ export default function Home() {
           <Reveal delay={0.1}>
             <div
               onClick={handleFilterAll}
-              className="flex items-center justify-center gap-2 hover:text-white"
+              className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
             >
               {all ? (
                 <MdOutlineCheckBox className="scale-150" />
@@ -292,7 +330,7 @@ export default function Home() {
           <Reveal delay={0.2}>
             <div
               onClick={handleFilterSD}
-              className="flex items-center justify-center gap-2 hover:text-white"
+              className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
             >
               {SD ? (
                 <MdOutlineCheckBox className="scale-150" />
@@ -306,7 +344,7 @@ export default function Home() {
           <Reveal delay={0.3}>
             <div
               onClick={handleFilterWD}
-              className="flex items-center justify-center gap-2 hover:text-white"
+              className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
             >
               {WD ? (
                 <MdOutlineCheckBox className="scale-150" />
@@ -320,7 +358,7 @@ export default function Home() {
           <Reveal delay={0.4}>
             <div
               onClick={handleFilterMD}
-              className="flex items-center justify-center gap-2 hover:text-white"
+              className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
             >
               {MD ? (
                 <MdOutlineCheckBox className="scale-150" />
@@ -334,7 +372,7 @@ export default function Home() {
           <Reveal delay={0.5}>
             <div
               onClick={handleFilterML}
-              className="flex items-center justify-center gap-2 hover:text-white"
+              className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
             >
               {ML ? (
                 <MdOutlineCheckBox className="scale-150" />
@@ -354,7 +392,7 @@ export default function Home() {
           (WD && project.filters.includes("WD")) ||
           (MD && project.filters.includes("MD")) ||
           (ML && project.filters.includes("ML")) ? (
-            <Reveal width="w-full" horizontal={true} delay={0.2}>
+            <Reveal width="w-full" delay={0.2}>
               <div
                 key={index}
                 className="flex flex-col items-center justify-center my-5"
@@ -365,6 +403,8 @@ export default function Home() {
                   skills={project.skills}
                   image={project.image}
                   url={project.url}
+                  media={project.media}
+                  showMedia={handleMedia}
                   index={index}
                 />
               </div>
@@ -381,7 +421,7 @@ export default function Home() {
       </div>
 
       {showMore && (
-        <div className="grid grid-cols-3 gap-5 mx-60">
+        <div className="grid grid-cols-3 gap-5 mx-60 pb-10">
           {OtherProjects.map((project, index) =>
             all ||
             (SD && project.filters.includes("SD")) ||
@@ -395,12 +435,18 @@ export default function Home() {
                     description={project.description}
                     skills={project.skills}
                     url={project.url}
+                    media={project.media}
+                    showMedia={handleMedia}
                   />
                 </Reveal>
               </div>
             ) : null
           )}
         </div>
+      )}
+
+      {showVideo && video.length > 0 && (
+        <VideoPlayer videos={video} onClose={handleCloseVideo} />
       )}
     </div>
   );

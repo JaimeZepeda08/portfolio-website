@@ -13,7 +13,10 @@ export default function EmailVerticalBar() {
   return (
     <div className="fixed flex flex-col justify-center items-center right-0 bottom-0 gap-10 mx-10">
       <Reveal delay={0.8}>
-        <span onClick={handleMessage} className={`${modifier} vertical-text`}>
+        <span
+          onClick={handleMessage}
+          className={`${modifier} vertical-text cursor-pointer`}
+        >
           jzepedapina@gmail.com
         </span>
       </Reveal>
