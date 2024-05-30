@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import CursorFollower from "@/components/CursorFollower";
+import ContactLinksVerticalBar from "@/components/ContactLinksVerticalBar";
+import EmailVerticalBar from "@/components/EmailVerticalBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +28,8 @@ export default function RootLayout({
         }}
       >
         <CursorFollower className="z-[-10]" />
+        <ContactLinksVerticalBar />
+        <EmailVerticalBar />
         <NavBar />
         {children}
       </body>

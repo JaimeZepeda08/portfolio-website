@@ -35,7 +35,7 @@ const CursorFollower: React.FC<CursorFollowerProps> = ({ className }) => {
         left: `${cursorPos.x}px`,
         top: `${cursorPos.y}px`,
       }}
-      className={`fixed w-80 h-80 rounded-full bg-green-500/25 filter blur-[80px] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none ${className}`}
+      className={`fixed w-96 h-96 rounded-full bg-green-500/10 filter blur-[100px] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none ${className}`}
     />
   );
 };

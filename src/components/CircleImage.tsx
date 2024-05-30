@@ -1,11 +1,17 @@
-export default function CircleImage() {
+type CircleImageProps = {
+  className?: string;
+};
+
+const CircleImage: React.FC<CircleImageProps> = ({ className }) => {
   return (
-    <div className="flex justify-center items-center">
+    <div className={`flex justify-center items-center ${className}`}>
       <img
         src="/myPhoto.png"
         alt="Profile"
-        className="rounded-full w-96 h-96 object-cover shadow-2xl border-8"
+        className="rounded-full w-80 h-80 object-cover shadow-2xl"
       />
     </div>
   );
-}
+};
+
+export default CircleImage;
