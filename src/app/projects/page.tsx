@@ -237,7 +237,7 @@ export default function Home() {
     {
       title: "Snake",
       description:
-        'Recreated the game of "Snake" on python using pygame and implemented the A* path finding algorithm to let the computer play on its own.',
+        'Recreated the game of "Snake" in python using pygame and implemented the A* path finding algorithm to let the computer play on its own.',
       skills: ["Python", "Pygame", "A*"],
       url: "https://github.com/JaimeZepeda08/Snake",
       image: "",
