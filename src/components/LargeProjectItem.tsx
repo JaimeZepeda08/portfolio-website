@@ -69,10 +69,15 @@ const LargeProjectItem: React.FC<LargeProjectItemProps> = ({
         <div className={`flex ${index % 2 === 0 ? "justify-end" : ""}`}>
           <div className="flex gap-4 items-center">
             {media && (
-              <MdOutlinePermMedia
+              <div
                 onClick={handleMedia}
-                className="hover:text-green-600 w-fit cursor-pointer scale-125"
-              />
+                className="group flex items-center hover:text-green-600 w-fit cursor-pointer"
+              >
+                <MdOutlinePermMedia className="scale-125 m-2" />
+                <p className="hidden group-hover:block underline-effect">
+                  Media
+                </p>
+              </div>
             )}
             {url && (
               <div

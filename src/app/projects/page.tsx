@@ -278,173 +278,174 @@ export default function Home() {
 
   return (
     <div>
-      <Reveal width="w-full">
-        <div className="flex items-center mt-16 mx-40">
-          <span className="text-3xl ">Work Experience</span>
-          <div className="bg-gray-200/50 w-1/4 h-[1px] shadow-md mx-5"></div>
-        </div>
-      </Reveal>
+      <div id="main-content">
+        <Reveal width="w-full">
+          <div className="flex items-center mt-16 mx-40">
+            <span className="text-3xl ">Work Experience</span>
+            <div className="bg-gray-200/50 w-1/4 h-[1px] shadow-md mx-5"></div>
+          </div>
+        </Reveal>
 
-      <div className="mt-5">
-        {WorkExperience.map((work, index) => (
-          <Reveal width="w-full" horizontal={true} delay={0.2 + 0.1 * index}>
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center"
-            >
-              <WorkItem
-                company={work.company}
-                title={work.title}
-                date={work.date}
-                description={work.description}
-              />
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
-      <Reveal width="w-full">
-        <div className="flex items-center mt-20 mx-40">
-          <span className="text-3xl ">Some Projects I've Worked On</span>
-          <div className="bg-gray-200/50 w-1/4 h-[1px] shadow-md mx-5"></div>
-        </div>
-      </Reveal>
-
-      <Reveal width="w-full" horizontal={true}>
-        <div className="flex items-center justify-center mt-10 gap-5 text-sm text-gray-400">
-          <p>Filter by: </p>
-          <Reveal delay={0.1}>
-            <div
-              onClick={handleFilterAll}
-              className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
-            >
-              {all ? (
-                <MdOutlineCheckBox className="scale-150" />
-              ) : (
-                <MdOutlineCheckBoxOutlineBlank className="scale-150" />
-              )}
-              <p className="underline-effect">All</p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <div
-              onClick={handleFilterSD}
-              className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
-            >
-              {SD ? (
-                <MdOutlineCheckBox className="scale-150" />
-              ) : (
-                <MdOutlineCheckBoxOutlineBlank className="scale-150" />
-              )}
-              <p className="underline-effect">Software Development</p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.3}>
-            <div
-              onClick={handleFilterWD}
-              className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
-            >
-              {WD ? (
-                <MdOutlineCheckBox className="scale-150" />
-              ) : (
-                <MdOutlineCheckBoxOutlineBlank className="scale-150" />
-              )}
-              <p className="underline-effect">Web Development</p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.4}>
-            <div
-              onClick={handleFilterMD}
-              className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
-            >
-              {MD ? (
-                <MdOutlineCheckBox className="scale-150" />
-              ) : (
-                <MdOutlineCheckBoxOutlineBlank className="scale-150" />
-              )}
-              <p className="underline-effect">Mobile Development</p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.5}>
-            <div
-              onClick={handleFilterML}
-              className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
-            >
-              {ML ? (
-                <MdOutlineCheckBox className="scale-150" />
-              ) : (
-                <MdOutlineCheckBoxOutlineBlank className="scale-150" />
-              )}
-              <p className="underline-effect">Machine Learning</p>
-            </div>
-          </Reveal>
-        </div>
-      </Reveal>
-
-      <div>
-        {FeaturedProjects.map((project, index) =>
-          all ||
-          (SD && project.filters.includes("SD")) ||
-          (WD && project.filters.includes("WD")) ||
-          (MD && project.filters.includes("MD")) ||
-          (ML && project.filters.includes("ML")) ? (
-            <Reveal width="w-full" delay={0.2}>
+        <div className="mt-5">
+          {WorkExperience.map((work, index) => (
+            <Reveal width="w-full" horizontal={true} delay={0.2 + 0.1 * index}>
               <div
                 key={index}
-                className="flex flex-col items-center justify-center my-5"
+                className="flex flex-col items-center justify-center"
               >
-                <LargeProjectItem
-                  title={project.title}
-                  description={project.description}
-                  skills={project.skills}
-                  image={project.image}
-                  url={project.url}
-                  media={project.media}
-                  showMedia={handleMedia}
-                  index={index}
+                <WorkItem
+                  company={work.company}
+                  title={work.title}
+                  date={work.date}
+                  description={work.description}
                 />
               </div>
             </Reveal>
-          ) : null
-        )}
-      </div>
+          ))}
+        </div>
 
-      <div className="flex justify-center">
-        <Button
-          onClick={handleShowMore}
-          text={showMore ? "Show Less" : "Show More"}
-        />
-      </div>
+        <Reveal width="w-full">
+          <div className="flex items-center mt-20 mx-40">
+            <span className="text-3xl ">Some Projects I've Worked On</span>
+            <div className="bg-gray-200/50 w-1/4 h-[1px] shadow-md mx-5"></div>
+          </div>
+        </Reveal>
 
-      {showMore && (
-        <div className="grid grid-cols-3 gap-5 mx-60 pb-10">
-          {OtherProjects.map((project, index) =>
+        <Reveal width="w-full" horizontal={true}>
+          <div className="flex items-center justify-center mt-10 gap-5 text-sm text-gray-400">
+            <p>Filter by: </p>
+            <Reveal delay={0.1}>
+              <div
+                onClick={handleFilterAll}
+                className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
+              >
+                {all ? (
+                  <MdOutlineCheckBox className="scale-150" />
+                ) : (
+                  <MdOutlineCheckBoxOutlineBlank className="scale-150" />
+                )}
+                <p className="underline-effect">All</p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <div
+                onClick={handleFilterSD}
+                className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
+              >
+                {SD ? (
+                  <MdOutlineCheckBox className="scale-150" />
+                ) : (
+                  <MdOutlineCheckBoxOutlineBlank className="scale-150" />
+                )}
+                <p className="underline-effect">Software Development</p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.3}>
+              <div
+                onClick={handleFilterWD}
+                className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
+              >
+                {WD ? (
+                  <MdOutlineCheckBox className="scale-150" />
+                ) : (
+                  <MdOutlineCheckBoxOutlineBlank className="scale-150" />
+                )}
+                <p className="underline-effect">Web Development</p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.4}>
+              <div
+                onClick={handleFilterMD}
+                className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
+              >
+                {MD ? (
+                  <MdOutlineCheckBox className="scale-150" />
+                ) : (
+                  <MdOutlineCheckBoxOutlineBlank className="scale-150" />
+                )}
+                <p className="underline-effect">Mobile Development</p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.5}>
+              <div
+                onClick={handleFilterML}
+                className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
+              >
+                {ML ? (
+                  <MdOutlineCheckBox className="scale-150" />
+                ) : (
+                  <MdOutlineCheckBoxOutlineBlank className="scale-150" />
+                )}
+                <p className="underline-effect">Machine Learning</p>
+              </div>
+            </Reveal>
+          </div>
+        </Reveal>
+
+        <div>
+          {FeaturedProjects.map((project, index) =>
             all ||
             (SD && project.filters.includes("SD")) ||
             (WD && project.filters.includes("WD")) ||
             (MD && project.filters.includes("MD")) ||
             (ML && project.filters.includes("ML")) ? (
-              <div key={index}>
-                <Reveal width="w-full" delay={0.1 * index}>
-                  <SmallProjectItem
+              <Reveal width="w-full" delay={0.2}>
+                <div
+                  key={index}
+                  className="flex flex-col items-center justify-center my-5"
+                >
+                  <LargeProjectItem
                     title={project.title}
                     description={project.description}
                     skills={project.skills}
+                    image={project.image}
                     url={project.url}
                     media={project.media}
                     showMedia={handleMedia}
+                    index={index}
                   />
-                </Reveal>
-              </div>
+                </div>
+              </Reveal>
             ) : null
           )}
         </div>
-      )}
 
+        <div className="flex justify-center">
+          <Button
+            onClick={handleShowMore}
+            text={showMore ? "Show Less" : "Show More"}
+          />
+        </div>
+
+        {showMore && (
+          <div className="grid grid-cols-3 gap-5 mx-60 pb-10">
+            {OtherProjects.map((project, index) =>
+              all ||
+              (SD && project.filters.includes("SD")) ||
+              (WD && project.filters.includes("WD")) ||
+              (MD && project.filters.includes("MD")) ||
+              (ML && project.filters.includes("ML")) ? (
+                <div key={index}>
+                  <Reveal width="w-full" delay={0.1 * index}>
+                    <SmallProjectItem
+                      title={project.title}
+                      description={project.description}
+                      skills={project.skills}
+                      url={project.url}
+                      media={project.media}
+                      showMedia={handleMedia}
+                    />
+                  </Reveal>
+                </div>
+              ) : null
+            )}
+          </div>
+        )}
+      </div>
       {showVideo && video.length > 0 && (
         <VideoPlayer videos={video} onClose={handleCloseVideo} />
       )}
