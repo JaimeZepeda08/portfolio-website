@@ -159,7 +159,7 @@ export default function Home() {
         'Reversed engineered a game from the App Store called "Don\'t Touch the Spikes". Implemented NEAT (Neuroevolution of Augmenting Topologies) to train an AI to play and progressively get better at the game.',
       skills: ["Python", "Pygame", "NEAT"],
       image: "spikes.png",
-      url: "",
+      url: "https://github.com/JaimeZepeda08/Spikes",
       filters: ["ML"],
       media: [
         ["videos/spikes-train.mov", "AI model training"],
@@ -172,7 +172,7 @@ export default function Home() {
         "Created a to-do list app for IPhones using Swift and SwiftUI, featuring tasks, organization by groups, and an isolation mode where users can focus on specific tasks using the pomodoro studying technique. Utilized funcionial programming paradigms such as MVVM.",
       skills: ["XCode", "Swift", "SQLite"],
       image: "to-do.jpeg",
-      url: "",
+      url: "https://github.com/JaimeZepeda08/ToDo",
       filters: ["SD", "MD"],
       media: undefined,
     },
@@ -184,7 +184,7 @@ export default function Home() {
       description:
         "A chess app that lets users play chess against a friend, on the same device, or against the computer. Users are also able to customize the color of the board and several other rules.",
       skills: ["Python", "Pygame", "MiniMax"],
-      url: "",
+      url: "https://github.com/JaimeZepeda08/Chess-Python",
       image: "",
       filters: ["SD"],
       media: undefined,
@@ -194,7 +194,7 @@ export default function Home() {
       description:
         "An improved version of the chess app I made in Java. This one makes use of more advanced programming paradigms such as OOP and inheritance.",
       skills: ["Java", "MiniMax", "OOP"],
-      url: "",
+      url: "https://github.com/JaimeZepeda08/Chess-Java",
       image: "",
       filters: ["SD"],
       media: undefined,
@@ -204,7 +204,7 @@ export default function Home() {
       description:
         "A one-day project where I created a fully functional game of tetris in Python using the Pygame library.",
       skills: ["Python", "Pygame"],
-      url: "",
+      url: "https://github.com/JaimeZepeda08/Tetris",
       image: "",
       filters: ["SD"],
       media: undefined,
@@ -214,7 +214,7 @@ export default function Home() {
       description:
         "Recreated the Google Chrome Dino game in Python. Implemented a genetic algorithm (NEAT) to train AI agents to get progressively better at playing the game",
       skills: ["Python", "Pygame", "NEAT"],
-      url: "",
+      url: "https://github.com/JaimeZepeda08/Dino",
       image: "",
       filters: ["ML"],
       media: [
@@ -239,7 +239,7 @@ export default function Home() {
       description:
         'Recreated the game of "Snake" on python using pygame and implemented the A* path finding algorithm to let the computer play on its own.',
       skills: ["Python", "Pygame", "A*"],
-      url: "",
+      url: "https://github.com/JaimeZepeda08/Snake",
       image: "",
       filters: ["SD"],
       media: [["/videos/snake.mov", "AI agent using A* to play the game"]],
@@ -249,7 +249,7 @@ export default function Home() {
       description:
         'A one-day project where I recreated the game "2048" in Python. Implemented a simple algorithm that lets the computer play on its own. Has reached 2028!',
       skills: ["Python", "Pygame"],
-      url: "",
+      url: "https://github.com/JaimeZepeda08/2048",
       image: "",
       filters: ["SD"],
       media: [["videos/2048-512.mov", "Simple algorithm playing the game"]],
@@ -259,7 +259,7 @@ export default function Home() {
       description:
         'Recreated a game called "Bubble Trouble". Implemented progressively harder levels, and simple physics such as ball collision and bouncing.',
       skills: ["Python", "Pygame"],
-      url: "",
+      url: "https://github.com/JaimeZepeda08/Bubble-Trouble",
       image: "",
       filters: ["SD"],
       media: undefined,
