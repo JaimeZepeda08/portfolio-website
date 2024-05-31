@@ -1,5 +1,6 @@
 import { AiOutlineExport } from "react-icons/ai";
 import { MdOutlinePermMedia } from "react-icons/md";
+import { IoMdDownload } from "react-icons/io";
 
 type LargeProjectItemProps = {
   title: string;
@@ -9,6 +10,7 @@ type LargeProjectItemProps = {
   url?: string;
   media?: string[][];
   showMedia: (media: string[][] | undefined) => void;
+  download?: string;
   index: number;
 };
 
@@ -20,6 +22,7 @@ const LargeProjectItem: React.FC<LargeProjectItemProps> = ({
   url,
   media,
   showMedia,
+  download,
   index,
 }) => {
   function handleLearnMore() {
@@ -34,12 +37,23 @@ const LargeProjectItem: React.FC<LargeProjectItemProps> = ({
     }
   }
 
+  function handleDownload() {
+    if (download) {
+      const link = document.createElement("a");
+      link.href = download;
+      link.download = download.split("/").pop() || "download";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  }
+
   return (
     <div className="group flex w-2/3 my-4 p-2 items-center rounded-md transition-transform duration-300 ease-in-out hover:scale-[1.02]">
       {index % 2 === 0 ? (
         <div className="relative w-2/5 h-2/5">
           <img src={image} className="w-full h-full rounded-xl shadow-md" />
-          <div className="absolute inset-0 bg-green-800/50 rounded-xl group-hover:bg-transparent"></div>
+          <div className="absolute inset-0 bg-green-800/30 rounded-xl group-hover:bg-transparent"></div>
         </div>
       ) : null}
 
@@ -68,13 +82,24 @@ const LargeProjectItem: React.FC<LargeProjectItemProps> = ({
 
         <div className={`flex ${index % 2 === 0 ? "justify-end" : ""}`}>
           <div className="flex gap-4 items-center">
+            {download && (
+              <div
+                onClick={handleDownload}
+                className="group flex items-center text-gray-400/50 group-hover:text-white group-hover:hover:text-green-600 w-fit cursor-pointer"
+              >
+                <IoMdDownload className="scale-125 m-2" />
+                <p className="text-sm hidden group-hover:block underline-effect">
+                  Download
+                </p>
+              </div>
+            )}
             {media && (
               <div
                 onClick={handleMedia}
-                className="group flex items-center hover:text-green-600 w-fit cursor-pointer"
+                className="group flex items-center text-gray-400/50 group-hover:text-white group-hover:hover:text-green-600 w-fit cursor-pointer"
               >
                 <MdOutlinePermMedia className="scale-125 m-2" />
-                <p className="hidden group-hover:block underline-effect">
+                <p className="text-sm  hidden group-hover:block underline-effect">
                   Media
                 </p>
               </div>
@@ -82,10 +107,10 @@ const LargeProjectItem: React.FC<LargeProjectItemProps> = ({
             {url && (
               <div
                 onClick={handleLearnMore}
-                className="group flex items-center hover:text-green-600 w-fit cursor-pointer"
+                className="group flex items-center text-gray-400/50 group-hover:text-white group-hover:hover:text-green-600 w-fit cursor-alias"
               >
                 <AiOutlineExport className="scale-125 m-2" />
-                <p className="hidden group-hover:block underline-effect">
+                <p className="text-sm hidden group-hover:block underline-effect">
                   Learn More
                 </p>
               </div>
@@ -97,7 +122,7 @@ const LargeProjectItem: React.FC<LargeProjectItemProps> = ({
       {index % 2 === 1 ? (
         <div className="relative w-2/5 h-2/5">
           <img src={image} className="w-full h-full rounded-xl shadow-md" />
-          <div className="absolute inset-0 bg-green-800/50 rounded-xl group-hover:bg-transparent"></div>
+          <div className="absolute inset-0 bg-green-800/30 rounded-xl group-hover:bg-transparent"></div>
         </div>
       ) : null}
     </div>

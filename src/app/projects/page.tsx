@@ -17,6 +17,7 @@ type ProjectItem = {
   skills: string[];
   url: string;
   media?: string[][];
+  download?: string;
   image: string;
   filters: string[];
 };
@@ -141,7 +142,6 @@ export default function Home() {
       url: "",
       image: "six-of-badgers.jpeg",
       filters: ["SD", "WD"],
-      media: undefined,
     },
     {
       title: "Run Track Pro",
@@ -151,7 +151,6 @@ export default function Home() {
       image: "run-track-pro.jpeg",
       url: "https://github.com/rzadluka/RunTrackPro",
       filters: ["SD", "MD"],
-      media: undefined,
     },
     {
       title: "Spikes",
@@ -174,7 +173,6 @@ export default function Home() {
       image: "to-do.jpeg",
       url: "https://github.com/JaimeZepeda08/ToDo",
       filters: ["SD", "MD"],
-      media: undefined,
     },
   ];
 
@@ -187,7 +185,7 @@ export default function Home() {
       url: "https://github.com/JaimeZepeda08/Chess-Python",
       image: "",
       filters: ["SD"],
-      media: undefined,
+      download: "downloads/Chess.zip",
     },
     {
       title: "Chess v2",
@@ -197,7 +195,6 @@ export default function Home() {
       url: "https://github.com/JaimeZepeda08/Chess-Java",
       image: "",
       filters: ["SD"],
-      media: undefined,
     },
     {
       title: "Tetris",
@@ -207,7 +204,7 @@ export default function Home() {
       url: "https://github.com/JaimeZepeda08/Tetris",
       image: "",
       filters: ["SD"],
-      media: undefined,
+      download: "downloads/Tetris.zip",
     },
     {
       title: "Dino",
@@ -232,7 +229,6 @@ export default function Home() {
       url: "/rat-analysis.html",
       image: "",
       filters: ["ML"],
-      media: undefined,
     },
     {
       title: "Snake",
@@ -243,6 +239,7 @@ export default function Home() {
       image: "",
       filters: ["SD"],
       media: [["/videos/snake.mov", "AI agent using A* to play the game"]],
+      download: "downloads/Snake.zip",
     },
     {
       title: "2048",
@@ -253,6 +250,7 @@ export default function Home() {
       image: "",
       filters: ["SD"],
       media: [["videos/2048-512.mov", "Simple algorithm playing the game"]],
+      download: "downloads/2048.zip",
     },
     {
       title: "Bubble Trouble",
@@ -262,7 +260,7 @@ export default function Home() {
       url: "https://github.com/JaimeZepeda08/Bubble-Trouble",
       image: "",
       filters: ["SD"],
-      media: undefined,
+      download: "downloads/Bubble Trouble.zip",
     },
     {
       title: "Personal Portfolio v1",
@@ -272,7 +270,6 @@ export default function Home() {
       url: "https://jaimezepeda08.github.io/",
       image: "",
       filters: ["WD"],
-      media: undefined,
     },
   ];
 
@@ -406,6 +403,7 @@ export default function Home() {
                     url={project.url}
                     media={project.media}
                     showMedia={handleMedia}
+                    download={project.download}
                     index={index}
                   />
                 </div>
@@ -438,6 +436,7 @@ export default function Home() {
                       url={project.url}
                       media={project.media}
                       showMedia={handleMedia}
+                      download={project.download}
                     />
                   </Reveal>
                 </div>
