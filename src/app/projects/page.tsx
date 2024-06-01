@@ -327,7 +327,7 @@ export default function Home() {
               />
             </Reveal>
 
-            <Reveal delay={0.2}>
+            <Reveal delay={0.15}>
               <FilterItem
                 name="Software Development"
                 condition={SD}
@@ -336,7 +336,7 @@ export default function Home() {
               />
             </Reveal>
 
-            <Reveal delay={0.3}>
+            <Reveal delay={0.2}>
               <FilterItem
                 name="Web Development"
                 condition={WD}
@@ -345,7 +345,7 @@ export default function Home() {
               />
             </Reveal>
 
-            <Reveal delay={0.4}>
+            <Reveal delay={0.25}>
               <FilterItem
                 name="Mobile Development"
                 condition={MD}
@@ -354,7 +354,7 @@ export default function Home() {
               />
             </Reveal>
 
-            <Reveal delay={0.5}>
+            <Reveal delay={0.3}>
               <FilterItem
                 name="Machine Learning"
                 condition={ML}
@@ -363,7 +363,7 @@ export default function Home() {
               />
             </Reveal>
 
-            <Reveal delay={0.6}>
+            <Reveal delay={0.35}>
               <FilterItem
                 name="React"
                 condition={react}
@@ -372,7 +372,7 @@ export default function Home() {
               />
             </Reveal>
 
-            <Reveal delay={0.7}>
+            <Reveal delay={0.4}>
               <FilterItem
                 name="Python"
                 condition={python}
@@ -381,7 +381,7 @@ export default function Home() {
               />
             </Reveal>
 
-            <Reveal delay={0.8}>
+            <Reveal delay={0.45}>
               <FilterItem
                 name="Java"
                 condition={java}
@@ -390,7 +390,7 @@ export default function Home() {
               />
             </Reveal>
 
-            <Reveal delay={0.9}>
+            <Reveal delay={0.5}>
               <FilterItem
                 name="Swift"
                 condition={swift}
@@ -399,7 +399,7 @@ export default function Home() {
               />
             </Reveal>
 
-            <Reveal delay={1}>
+            <Reveal delay={0.55}>
               <FilterItem
                 name="R"
                 condition={r}
