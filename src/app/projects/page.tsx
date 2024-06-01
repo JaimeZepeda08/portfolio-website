@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/Button";
+import FilterItem from "@/components/FilterItem";
 import LargeProjectItem from "@/components/LargeProjectItem";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import Reveal from "@/components/Reveal";
@@ -8,8 +9,6 @@ import SmallProjectItem from "@/components/SmallProjectItem";
 import VideoPlayer from "@/components/VideoPlayer";
 import WorkItem from "@/components/WorkItem";
 import { useEffect, useState } from "react";
-import { MdOutlineCheckBox } from "react-icons/md";
-import { MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
 
 type ProjectItem = {
   title: string;
@@ -42,6 +41,11 @@ export default function Home() {
   const [WD, setWD] = useState(false);
   const [MD, setMD] = useState(false);
   const [ML, setML] = useState(false);
+  const [python, setPython] = useState(false);
+  const [java, setJava] = useState(false);
+  const [swift, setSwift] = useState(false);
+  const [r, setR] = useState(false);
+  const [react, setReact] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1000);
@@ -52,32 +56,35 @@ export default function Home() {
     return <LoadingSpinner />;
   }
 
-  function handleFilterAll() {
-    setAll(!all);
+  function turnOffAll() {
+    setAll(false);
+  }
+
+  function turnOnAll() {
     setSD(false);
     setWD(false);
     setMD(false);
     setML(false);
+    setPython(false);
+    setJava(false);
+    setSwift(false);
+    setR(false);
+    setReact(false);
   }
 
-  function handleFilterSD() {
-    setAll(false);
-    setSD(!SD);
-  }
-
-  function handleFilterWD() {
-    setAll(false);
-    setWD(!WD);
-  }
-
-  function handleFilterMD() {
-    setAll(false);
-    setMD(!MD);
-  }
-
-  function handleFilterML() {
-    setAll(false);
-    setML(!ML);
+  function checkFilters(project: ProjectItem) {
+    return (
+      all ||
+      (SD && project.filters.includes("SD")) ||
+      (WD && project.filters.includes("WD")) ||
+      (MD && project.filters.includes("MD")) ||
+      (ML && project.filters.includes("ML")) ||
+      (python && project.filters.includes("python")) ||
+      (java && project.filters.includes("java")) ||
+      (swift && project.filters.includes("swift")) ||
+      (r && project.filters.includes("r")) ||
+      (react && project.filters.includes("react"))
+    );
   }
 
   function handleShowMore() {
@@ -141,7 +148,7 @@ export default function Home() {
       ],
       url: "",
       image: "six-of-badgers.jpeg",
-      filters: ["SD", "WD"],
+      filters: ["SD", "WD", "java", "react"],
     },
     {
       title: "Run Track Pro",
@@ -150,7 +157,7 @@ export default function Home() {
       skills: ["Android Studio", "Java", "Google Maps API", "SQLite"],
       image: "run-track-pro.jpeg",
       url: "https://github.com/rzadluka/RunTrackPro",
-      filters: ["SD", "MD"],
+      filters: ["SD", "MD", "java"],
     },
     {
       title: "Spikes",
@@ -159,7 +166,7 @@ export default function Home() {
       skills: ["Python", "Pygame", "NEAT"],
       image: "spikes.png",
       url: "https://github.com/JaimeZepeda08/Spikes",
-      filters: ["ML"],
+      filters: ["ML", "python"],
       media: [
         ["videos/spikes-train.mov", "AI model training"],
         ["videos/spikes-demo.mov", "Trained model playing the game"],
@@ -172,7 +179,7 @@ export default function Home() {
       skills: ["XCode", "Swift", "SQLite"],
       image: "to-do.jpeg",
       url: "https://github.com/JaimeZepeda08/ToDo",
-      filters: ["SD", "MD"],
+      filters: ["SD", "MD", "swift"],
     },
   ];
 
@@ -184,7 +191,7 @@ export default function Home() {
       skills: ["Python", "Pygame", "MiniMax"],
       url: "https://github.com/JaimeZepeda08/Chess-Python",
       image: "",
-      filters: ["SD"],
+      filters: ["SD", "python"],
       download: "downloads/Chess.zip",
     },
     {
@@ -194,7 +201,7 @@ export default function Home() {
       skills: ["Java", "MiniMax", "OOP"],
       url: "https://github.com/JaimeZepeda08/Chess-Java",
       image: "",
-      filters: ["SD"],
+      filters: ["SD", "java"],
     },
     {
       title: "Tetris",
@@ -203,7 +210,7 @@ export default function Home() {
       skills: ["Python", "Pygame"],
       url: "https://github.com/JaimeZepeda08/Tetris",
       image: "",
-      filters: ["SD"],
+      filters: ["SD", "python"],
       download: "downloads/Tetris.zip",
     },
     {
@@ -213,7 +220,7 @@ export default function Home() {
       skills: ["Python", "Pygame", "NEAT"],
       url: "https://github.com/JaimeZepeda08/Dino",
       image: "",
-      filters: ["ML"],
+      filters: ["ML", "python"],
       media: [
         [
           "videos/dino-train.mov",
@@ -228,7 +235,7 @@ export default function Home() {
       skills: ["R", "Linear Regression"],
       url: "/rat-analysis.html",
       image: "",
-      filters: ["ML"],
+      filters: ["ML", "r"],
     },
     {
       title: "Snake",
@@ -237,7 +244,7 @@ export default function Home() {
       skills: ["Python", "Pygame", "A*"],
       url: "https://github.com/JaimeZepeda08/Snake",
       image: "",
-      filters: ["SD"],
+      filters: ["SD", "python"],
       media: [["/videos/snake.mov", "AI agent using A* to play the game"]],
       download: "downloads/Snake.zip",
     },
@@ -248,7 +255,7 @@ export default function Home() {
       skills: ["Python", "Pygame"],
       url: "https://github.com/JaimeZepeda08/2048",
       image: "",
-      filters: ["SD"],
+      filters: ["SD", "python"],
       media: [["videos/2048-512.mov", "Simple algorithm playing the game"]],
       download: "downloads/2048.zip",
     },
@@ -259,7 +266,7 @@ export default function Home() {
       skills: ["Python", "Pygame"],
       url: "https://github.com/JaimeZepeda08/Bubble-Trouble",
       image: "",
-      filters: ["SD"],
+      filters: ["SD", "python"],
       download: "downloads/Bubble Trouble.zip",
     },
     {
@@ -309,87 +316,103 @@ export default function Home() {
         </Reveal>
 
         <Reveal width="w-full" horizontal={true}>
-          <div className="flex items-center justify-center mt-10 gap-5 text-sm text-gray-400">
+          <div className="flex flex-wrap w-full items-center justify-center mt-10 mb-5 gap-5 px-64 text-sm text-gray-400">
             <p>Filter by: </p>
             <Reveal delay={0.1}>
-              <div
-                onClick={handleFilterAll}
-                className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
-              >
-                {all ? (
-                  <MdOutlineCheckBox className="scale-150" />
-                ) : (
-                  <MdOutlineCheckBoxOutlineBlank className="scale-150" />
-                )}
-                <p className="underline-effect">All</p>
-              </div>
+              <FilterItem
+                name="All"
+                condition={all}
+                setUpFunction={turnOnAll}
+                filterFunction={setAll}
+              />
             </Reveal>
 
             <Reveal delay={0.2}>
-              <div
-                onClick={handleFilterSD}
-                className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
-              >
-                {SD ? (
-                  <MdOutlineCheckBox className="scale-150" />
-                ) : (
-                  <MdOutlineCheckBoxOutlineBlank className="scale-150" />
-                )}
-                <p className="underline-effect">Software Development</p>
-              </div>
+              <FilterItem
+                name="Software Development"
+                condition={SD}
+                setUpFunction={turnOffAll}
+                filterFunction={setSD}
+              />
             </Reveal>
 
             <Reveal delay={0.3}>
-              <div
-                onClick={handleFilterWD}
-                className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
-              >
-                {WD ? (
-                  <MdOutlineCheckBox className="scale-150" />
-                ) : (
-                  <MdOutlineCheckBoxOutlineBlank className="scale-150" />
-                )}
-                <p className="underline-effect">Web Development</p>
-              </div>
+              <FilterItem
+                name="Web Development"
+                condition={WD}
+                setUpFunction={turnOffAll}
+                filterFunction={setWD}
+              />
             </Reveal>
 
             <Reveal delay={0.4}>
-              <div
-                onClick={handleFilterMD}
-                className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
-              >
-                {MD ? (
-                  <MdOutlineCheckBox className="scale-150" />
-                ) : (
-                  <MdOutlineCheckBoxOutlineBlank className="scale-150" />
-                )}
-                <p className="underline-effect">Mobile Development</p>
-              </div>
+              <FilterItem
+                name="Mobile Development"
+                condition={MD}
+                setUpFunction={turnOffAll}
+                filterFunction={setMD}
+              />
             </Reveal>
 
             <Reveal delay={0.5}>
-              <div
-                onClick={handleFilterML}
-                className="flex items-center justify-center gap-2 hover:text-white cursor-pointer"
-              >
-                {ML ? (
-                  <MdOutlineCheckBox className="scale-150" />
-                ) : (
-                  <MdOutlineCheckBoxOutlineBlank className="scale-150" />
-                )}
-                <p className="underline-effect">Machine Learning</p>
-              </div>
+              <FilterItem
+                name="Machine Learning"
+                condition={ML}
+                setUpFunction={turnOffAll}
+                filterFunction={setML}
+              />
+            </Reveal>
+
+            <Reveal delay={0.6}>
+              <FilterItem
+                name="React"
+                condition={react}
+                setUpFunction={turnOffAll}
+                filterFunction={setReact}
+              />
+            </Reveal>
+
+            <Reveal delay={0.7}>
+              <FilterItem
+                name="Python"
+                condition={python}
+                setUpFunction={turnOffAll}
+                filterFunction={setPython}
+              />
+            </Reveal>
+
+            <Reveal delay={0.8}>
+              <FilterItem
+                name="Java"
+                condition={java}
+                setUpFunction={turnOffAll}
+                filterFunction={setJava}
+              />
+            </Reveal>
+
+            <Reveal delay={0.9}>
+              <FilterItem
+                name="Swift"
+                condition={swift}
+                setUpFunction={turnOffAll}
+                filterFunction={setSwift}
+              />
+            </Reveal>
+
+            <Reveal delay={1}>
+              <FilterItem
+                name="R"
+                condition={r}
+                setUpFunction={turnOffAll}
+                filterFunction={setR}
+              />
             </Reveal>
           </div>
         </Reveal>
 
         <div>
           {FeaturedProjects.map((project, index) =>
-            all ||
-            (SD && project.filters.includes("SD")) ||
-            (WD && project.filters.includes("WD")) ||
-            (MD && project.filters.includes("MD")) ||
-            (ML && project.filters.includes("ML")) ? (
+            checkFilters(project) ? (
               <Reveal width="w-full" delay={0.2}>
                 <div
                   key={index}
@@ -422,11 +445,7 @@ export default function Home() {
         {showMore && (
           <div className="grid grid-cols-3 gap-5 mx-60 pb-10">
             {OtherProjects.map((project, index) =>
-              all ||
-              (SD && project.filters.includes("SD")) ||
-              (WD && project.filters.includes("WD")) ||
-              (MD && project.filters.includes("MD")) ||
-              (ML && project.filters.includes("ML")) ? (
+              checkFilters(project) ? (
                 <div key={index}>
                   <Reveal width="w-full" delay={0.1 * index}>
                     <SmallProjectItem
