@@ -443,7 +443,7 @@ export default function Home() {
         </div>
 
         {showMore && (
-          <div className="grid grid-cols-3 gap-5 mx-60 pb-10">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 lg:mx-60 md:mx-40 sm:mx-24 gap-5 pb-10">
             {OtherProjects.map((project, index) =>
               checkFilters(project) ? (
                 <div key={index}>

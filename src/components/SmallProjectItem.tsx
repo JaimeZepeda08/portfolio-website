@@ -77,7 +77,7 @@ const SmallProjectItem: React.FC<SmallProjectItemProps> = ({
         {description}
       </p>
       <br />
-      <ul className="flex justify-end">
+      <ul className="flex flex-wrap justify-end">
         {skills.map((skill, index) => (
           <li
             key={index}
