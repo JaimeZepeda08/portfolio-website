@@ -112,6 +112,16 @@ export default function Home() {
 
   const WorkExperience: WorkItem[] = [
     {
+      company: "UW Madison",
+      title: "Peer Mentor / Teacher Assistant",
+      date: ["June 2024", "Present"],
+      description: [
+        "Assisted in teaching undergraduate courses in the Computer Science Department such as Data Science Programming, providing support to a large number of students.",
+        "Mentored students individually, helping them troubleshoot code and debug programs, leading to improved academic performance.",
+        "Collaborated with Professor Gurmail Singh to create engaging course content and adapt teaching methods based on student feedback.",
+      ],
+    },
+    {
       company: "NBO7",
       title: "Software Developer",
       date: ["Sep 2023", "Feb 2024"],
@@ -126,7 +136,7 @@ export default function Home() {
       date: ["June 2023", "Aug 2023"],
       description: [
         "Supervised the garden department, offered excellent customer service, and assisted with sales.",
-        "In charge of down-stocking and giving constant shelf maintenance to improve store appearance",
+        "In charge of stocking and giving constant shelf maintenance to improve store appearance",
         "Worked in a team-oriented environment to provide the customers with the best shopping experience",
       ],
     },
