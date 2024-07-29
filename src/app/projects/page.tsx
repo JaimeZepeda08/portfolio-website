@@ -116,7 +116,6 @@ export default function Home() {
       title: "Peer Mentor / Teacher Assistant",
       date: ["June 2024", "Present"],
       description: [
-        "Assisted in teaching undergraduate courses in the Computer Science Department such as Data Science Programming, providing support to a large number of students.",
         "Mentored students individually, helping them troubleshoot code and debug programs, leading to improved academic performance.",
         "Collaborated with Professor Gurmail Singh to create engaging course content and adapt teaching methods based on student feedback.",
       ],
@@ -156,7 +155,7 @@ export default function Home() {
         "Google OAuth",
         "Postman",
       ],
-      url: "",
+      url: "https://github.com/JaimeZepeda08/SixOfBadgers",
       image: "six-of-badgers.jpeg",
       filters: ["SD", "WD", "java", "react"],
     },
