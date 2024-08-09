@@ -46,7 +46,7 @@ const SmallProjectItem: React.FC<SmallProjectItemProps> = ({
   }
 
   return (
-    <div className="group relative flex-col h-[22rem] p-5 bg-green-900/40 rounded-md shadow-sm transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+    <div className="group relative flex-col h-[20rem] p-5 bg-green-900/40 rounded-md shadow-sm transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
       <div className="flex items-center justify-between mb-2">
         <FaRegFolder className="text-green-700/50 scale-[2.5] mx-2 mt-4" />
         <div className="flex gap-4">

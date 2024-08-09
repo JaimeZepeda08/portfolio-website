@@ -196,7 +196,7 @@ export default function Home() {
     {
       title: "To Do List App",
       description:
-        "Created a to-do list app for IPhones using Swift and SwiftUI, featuring tasks, organization by groups, and more. Utilized funcionial programming paradigms such as MVVM.",
+        "Created a to-do list app for iPhones using Swift and SwiftUI, featuring tasks, organization by groups, and more.",
       skills: ["XCode", "Swift", "SQLite"],
       image: "to-do.jpeg",
       url: "https://github.com/JaimeZepeda08/ToDo",
@@ -301,7 +301,7 @@ export default function Home() {
   return (
     <div>
       <div id="main-content">
-        {/* Experience section title */}
+        {/* experience section title */}
         <Reveal width="w-full" horizontal={true}>
           <div className="flex items-center mt-16 mx-40">
             <span className="text-3xl ">Work Experience</span>
@@ -309,7 +309,7 @@ export default function Home() {
           </div>
         </Reveal>
 
-        {/* Work experience items */}
+        {/* work experience items */}
         <div className="mt-5">
           {WorkExperience.map((work, index) => (
             <FadeIn key={index} width="w-full" delay={0.2}>
@@ -325,7 +325,7 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Projects section title */}
+        {/* projects section title */}
         <Reveal width="w-full" horizontal={true}>
           <div className="flex items-center mt-20 mx-40">
             <span className="text-3xl ">Some Projects I've Worked On</span>
@@ -333,7 +333,7 @@ export default function Home() {
           </div>
         </Reveal>
 
-        {/* Project filters */}
+        {/* project filters */}
         <FadeIn width="w-full" delay={0.2}>
           <div className="flex flex-wrap w-full items-center justify-center mt-10 mb-5 gap-5 px-64 text-sm text-gray-400">
             <p>Filter by: </p>
@@ -409,6 +409,7 @@ export default function Home() {
           </div>
         </FadeIn>
 
+        {/* feature project items */}
         <div>
           {FeaturedProjects.map((project, index) =>
             checkFilters(project) ? (
@@ -431,6 +432,7 @@ export default function Home() {
           )}
         </div>
 
+        {/* show more button */}
         <div className="flex justify-center">
           <Button
             onClick={handleShowMore}
@@ -438,6 +440,7 @@ export default function Home() {
           />
         </div>
 
+        {/* other projects */}
         {showMore && (
           <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 lg:mx-60 md:mx-40 sm:mx-24 gap-5 pb-10">
             {OtherProjects.map((project, index) =>
@@ -460,6 +463,8 @@ export default function Home() {
           </div>
         )}
       </div>
+
+      {/* video player */}
       {showVideo && video.length > 0 && (
         <VideoPlayer videos={video} onClose={handleCloseVideo} />
       )}

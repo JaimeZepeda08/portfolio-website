@@ -27,11 +27,11 @@ export default function RootLayout({
           backgroundColor: "rgb(10, 30, 0)",
         }}
       >
-        <CursorFollower className="z-[-10]" />
+        <CursorFollower className="-z-10" />
         <ContactLinksVerticalBar />
         <EmailVerticalBar />
         <NavBar />
-        <div className="pt-20"></div>
+        <div className="pt-24" />
         {children}
       </body>
     </html>
