@@ -4,6 +4,7 @@ import { useState } from "react";
 import { VscTriangleDown } from "react-icons/vsc";
 import { VscTriangleUp } from "react-icons/vsc";
 import Reveal from "./Reveal";
+import FadeIn from "./FadeIn";
 
 type WorkItemProps = {
   company: string;
@@ -43,7 +44,7 @@ const WorkItem: React.FC<WorkItemProps> = ({
           )}
         </div>
         {expanded ? (
-          <Reveal>
+          <FadeIn duration={1}>
             <ul className="list-disc space-y-4 w-full h-fit p-4 my-4 rounded-md shadow-sm bg-green-800/25 transition-transform duration-300 ease-in-out group-hover:shadow-2xl">
               {description.map((description, index) => (
                 <li
@@ -54,7 +55,7 @@ const WorkItem: React.FC<WorkItemProps> = ({
                 </li>
               ))}
             </ul>
-          </Reveal>
+          </FadeIn>
         ) : null}
       </div>
     </div>

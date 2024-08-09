@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/Button";
+import FadeIn from "@/components/FadeIn";
 import FilterItem from "@/components/FilterItem";
 import LargeProjectItem from "@/components/LargeProjectItem";
 import LoadingSpinner from "@/components/LoadingSpinner";
@@ -129,16 +130,6 @@ export default function Home() {
         "Fixed bugs and enhanced functionality in the NBOPro7@Jmol program through collaboration with people from various universities",
       ],
     },
-    {
-      company: "The Home Depot",
-      title: "Sales Associate",
-      date: ["June 2023", "Aug 2023"],
-      description: [
-        "Supervised the garden department, offered excellent customer service, and assisted with sales.",
-        "In charge of stocking and giving constant shelf maintenance to improve store appearance",
-        "Worked in a team-oriented environment to provide the customers with the best shopping experience",
-      ],
-    },
   ];
 
   const FeaturedProjects: ProjectItem[] = [
@@ -173,7 +164,7 @@ export default function Home() {
         "Numpy",
         "Docker",
       ],
-      url: "",
+      url: "./projects",
       image: "fakeflix.jpeg",
       filters: ["SD", "WD", "ML", "python", "react"],
     },
@@ -199,18 +190,18 @@ export default function Home() {
         ["videos/spikes-demo.mov", "Trained model playing the game"],
       ],
     },
+  ];
+
+  const OtherProjects: ProjectItem[] = [
     {
       title: "To Do List App",
       description:
-        "Created a to-do list app for IPhones using Swift and SwiftUI, featuring tasks, organization by groups, and an isolation mode where users can focus on specific tasks using the pomodoro studying technique. Utilized funcionial programming paradigms such as MVVM.",
+        "Created a to-do list app for IPhones using Swift and SwiftUI, featuring tasks, organization by groups, and more. Utilized funcionial programming paradigms such as MVVM.",
       skills: ["XCode", "Swift", "SQLite"],
       image: "to-do.jpeg",
       url: "https://github.com/JaimeZepeda08/ToDo",
       filters: ["SD", "MD", "swift"],
     },
-  ];
-
-  const OtherProjects: ProjectItem[] = [
     {
       title: "Chess v1",
       description:
@@ -310,21 +301,18 @@ export default function Home() {
   return (
     <div>
       <div id="main-content">
-        <Reveal width="w-full">
+        {/* Experience section title */}
+        <Reveal width="w-full" horizontal={true}>
           <div className="flex items-center mt-16 mx-40">
             <span className="text-3xl ">Work Experience</span>
             <div className="bg-gray-200/50 w-1/4 h-[1px] shadow-md mx-5"></div>
           </div>
         </Reveal>
 
+        {/* Work experience items */}
         <div className="mt-5">
           {WorkExperience.map((work, index) => (
-            <Reveal
-              key={index}
-              width="w-full"
-              horizontal={true}
-              delay={0.2 + 0.1 * index}
-            >
+            <FadeIn key={index} width="w-full" delay={0.2}>
               <div className="flex flex-col items-center justify-center">
                 <WorkItem
                   company={work.company}
@@ -333,111 +321,93 @@ export default function Home() {
                   description={work.description}
                 />
               </div>
-            </Reveal>
+            </FadeIn>
           ))}
         </div>
 
-        <Reveal width="w-full">
+        {/* Projects section title */}
+        <Reveal width="w-full" horizontal={true}>
           <div className="flex items-center mt-20 mx-40">
             <span className="text-3xl ">Some Projects I've Worked On</span>
             <div className="bg-gray-200/50 w-1/4 h-[1px] shadow-md mx-5"></div>
           </div>
         </Reveal>
 
-        <Reveal width="w-full" horizontal={true}>
+        {/* Project filters */}
+        <FadeIn width="w-full" delay={0.2}>
           <div className="flex flex-wrap w-full items-center justify-center mt-10 mb-5 gap-5 px-64 text-sm text-gray-400">
             <p>Filter by: </p>
-            <Reveal delay={0.1}>
-              <FilterItem
-                name="All"
-                condition={all}
-                setUpFunction={turnOnAll}
-                filterFunction={setAll}
-              />
-            </Reveal>
+            <FilterItem
+              name="All"
+              condition={all}
+              setUpFunction={turnOnAll}
+              filterFunction={setAll}
+            />
 
-            <Reveal delay={0.15}>
-              <FilterItem
-                name="Software Development"
-                condition={SD}
-                setUpFunction={turnOffAll}
-                filterFunction={setSD}
-              />
-            </Reveal>
+            <FilterItem
+              name="Software Development"
+              condition={SD}
+              setUpFunction={turnOffAll}
+              filterFunction={setSD}
+            />
 
-            <Reveal delay={0.2}>
-              <FilterItem
-                name="Web Development"
-                condition={WD}
-                setUpFunction={turnOffAll}
-                filterFunction={setWD}
-              />
-            </Reveal>
+            <FilterItem
+              name="Web Development"
+              condition={WD}
+              setUpFunction={turnOffAll}
+              filterFunction={setWD}
+            />
 
-            <Reveal delay={0.25}>
-              <FilterItem
-                name="Mobile Development"
-                condition={MD}
-                setUpFunction={turnOffAll}
-                filterFunction={setMD}
-              />
-            </Reveal>
+            <FilterItem
+              name="Mobile Development"
+              condition={MD}
+              setUpFunction={turnOffAll}
+              filterFunction={setMD}
+            />
 
-            <Reveal delay={0.3}>
-              <FilterItem
-                name="Machine Learning"
-                condition={ML}
-                setUpFunction={turnOffAll}
-                filterFunction={setML}
-              />
-            </Reveal>
+            <FilterItem
+              name="Machine Learning"
+              condition={ML}
+              setUpFunction={turnOffAll}
+              filterFunction={setML}
+            />
 
-            <Reveal delay={0.35}>
-              <FilterItem
-                name="React"
-                condition={react}
-                setUpFunction={turnOffAll}
-                filterFunction={setReact}
-              />
-            </Reveal>
+            <FilterItem
+              name="React"
+              condition={react}
+              setUpFunction={turnOffAll}
+              filterFunction={setReact}
+            />
 
-            <Reveal delay={0.4}>
-              <FilterItem
-                name="Python"
-                condition={python}
-                setUpFunction={turnOffAll}
-                filterFunction={setPython}
-              />
-            </Reveal>
+            <FilterItem
+              name="Python"
+              condition={python}
+              setUpFunction={turnOffAll}
+              filterFunction={setPython}
+            />
 
-            <Reveal delay={0.45}>
-              <FilterItem
-                name="Java"
-                condition={java}
-                setUpFunction={turnOffAll}
-                filterFunction={setJava}
-              />
-            </Reveal>
+            <FilterItem
+              name="Java"
+              condition={java}
+              setUpFunction={turnOffAll}
+              filterFunction={setJava}
+            />
 
-            <Reveal delay={0.5}>
-              <FilterItem
-                name="Swift"
-                condition={swift}
-                setUpFunction={turnOffAll}
-                filterFunction={setSwift}
-              />
-            </Reveal>
+            <FilterItem
+              name="Swift"
+              condition={swift}
+              setUpFunction={turnOffAll}
+              filterFunction={setSwift}
+            />
 
-            <Reveal delay={0.55}>
-              <FilterItem
-                name="R"
-                condition={r}
-                setUpFunction={turnOffAll}
-                filterFunction={setR}
-              />
-            </Reveal>
+            <FilterItem
+              name="R"
+              condition={r}
+              setUpFunction={turnOffAll}
+              filterFunction={setR}
+            />
           </div>
-        </Reveal>
+        </FadeIn>
 
         <div>
           {FeaturedProjects.map((project, index) =>

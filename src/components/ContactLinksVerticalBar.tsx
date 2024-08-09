@@ -30,7 +30,7 @@ export default function ContactLinksVerticalBar() {
   }
 
   return (
-    <div className="fixed flex flex-col justify-center items-center left-0 bottom-0 gap-10 mx-10">
+    <div className="fixed flex flex-col justify-center items-center left-0 bottom-0 gap-10 mx-10 z-10">
       <Reveal delay={0.2}>
         <IoLogoGithub onClick={handleGitHub} className={modifier} />
       </Reveal>

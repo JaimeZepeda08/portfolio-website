@@ -31,6 +31,7 @@ export default function RootLayout({
         <ContactLinksVerticalBar />
         <EmailVerticalBar />
         <NavBar />
+        <div className="pt-20"></div>
         {children}
       </body>
     </html>
