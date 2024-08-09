@@ -160,6 +160,24 @@ export default function Home() {
       filters: ["SD", "WD", "java", "react"],
     },
     {
+      title: "Fakeflix",
+      description:
+        "I developed a movie recommendation system that leverages a robust dataset of over 300,000 movies and 200,000 user reviews. To ensure high recommendation accuracy, I implemented Iterative Singular Value Thresholding and K-Nearest Neighbors. To make this technology accessible and engaging, I created a user-friendly website using React and Flask. This platform provides personalized movie recommendations, offering a seamless experience for users to discover new films tailored to their preferences.",
+      skills: [
+        "React",
+        "Flask",
+        "Scikit-Learn",
+        "ISVT",
+        "KNN",
+        "Pandas",
+        "Numpy",
+        "Docker",
+      ],
+      url: "",
+      image: "fakeflix.jpeg",
+      filters: ["SD", "WD", "ML", "python", "react"],
+    },
+    {
       title: "Run Track Pro",
       description:
         "Worked with a team to create an Android App in Java for runners. Users can track their runs and view statistics of their progress over time. We used an SQLite database to store run information, and the Google Maps API to track runs and display real-time data such as distance, pace, and route taken by the user.",
@@ -301,11 +319,13 @@ export default function Home() {
 
         <div className="mt-5">
           {WorkExperience.map((work, index) => (
-            <Reveal width="w-full" horizontal={true} delay={0.2 + 0.1 * index}>
-              <div
-                key={index}
-                className="flex flex-col items-center justify-center"
-              >
+            <Reveal
+              key={index}
+              width="w-full"
+              horizontal={true}
+              delay={0.2 + 0.1 * index}
+            >
+              <div className="flex flex-col items-center justify-center">
                 <WorkItem
                   company={work.company}
                   title={work.title}
@@ -422,11 +442,8 @@ export default function Home() {
         <div>
           {FeaturedProjects.map((project, index) =>
             checkFilters(project) ? (
-              <Reveal width="w-full" delay={0.2}>
-                <div
-                  key={index}
-                  className="flex flex-col items-center justify-center my-5"
-                >
+              <Reveal key={index} width="w-full" delay={0.2}>
+                <div className="flex flex-col items-center justify-center my-5">
                   <LargeProjectItem
                     title={project.title}
                     description={project.description}
