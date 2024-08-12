@@ -42,11 +42,6 @@ export default function Home() {
   const [WD, setWD] = useState(false);
   const [MD, setMD] = useState(false);
   const [ML, setML] = useState(false);
-  const [python, setPython] = useState(false);
-  const [java, setJava] = useState(false);
-  const [swift, setSwift] = useState(false);
-  const [r, setR] = useState(false);
-  const [react, setReact] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1000);
@@ -66,11 +61,6 @@ export default function Home() {
     setWD(false);
     setMD(false);
     setML(false);
-    setPython(false);
-    setJava(false);
-    setSwift(false);
-    setR(false);
-    setReact(false);
   }
 
   function checkFilters(project: ProjectItem) {
@@ -79,12 +69,7 @@ export default function Home() {
       (SD && project.filters.includes("SD")) ||
       (WD && project.filters.includes("WD")) ||
       (MD && project.filters.includes("MD")) ||
-      (ML && project.filters.includes("ML")) ||
-      (python && project.filters.includes("python")) ||
-      (java && project.filters.includes("java")) ||
-      (swift && project.filters.includes("swift")) ||
-      (r && project.filters.includes("r")) ||
-      (react && project.filters.includes("react"))
+      (ML && project.filters.includes("ML"))
     );
   }
 
@@ -148,7 +133,7 @@ export default function Home() {
       ],
       url: "https://github.com/JaimeZepeda08/SixOfBadgers",
       image: "six-of-badgers.jpeg",
-      filters: ["SD", "WD", "java", "react"],
+      filters: ["SD", "WD"],
     },
     {
       title: "Fakeflix",
@@ -166,7 +151,7 @@ export default function Home() {
       ],
       url: "./projects",
       image: "fakeflix.jpeg",
-      filters: ["SD", "WD", "ML", "python", "react"],
+      filters: ["SD", "WD", "ML"],
     },
     {
       title: "Run Track Pro",
@@ -175,7 +160,7 @@ export default function Home() {
       skills: ["Android Studio", "Java", "Google Maps API", "SQLite"],
       image: "run-track-pro.jpeg",
       url: "https://github.com/rzadluka/RunTrackPro",
-      filters: ["SD", "MD", "java"],
+      filters: ["SD", "MD"],
     },
     {
       title: "Spikes",
@@ -184,7 +169,7 @@ export default function Home() {
       skills: ["Python", "Pygame", "NEAT"],
       image: "spikes.png",
       url: "https://github.com/JaimeZepeda08/Spikes",
-      filters: ["ML", "python"],
+      filters: ["ML"],
       media: [
         ["videos/spikes-train.mov", "AI model training"],
         ["videos/spikes-demo.mov", "Trained model playing the game"],
@@ -200,7 +185,7 @@ export default function Home() {
       skills: ["XCode", "Swift", "SQLite"],
       image: "to-do.jpeg",
       url: "https://github.com/JaimeZepeda08/ToDo",
-      filters: ["SD", "MD", "swift"],
+      filters: ["SD", "MD"],
     },
     {
       title: "Chess v1",
@@ -209,7 +194,7 @@ export default function Home() {
       skills: ["Python", "Pygame", "MiniMax"],
       url: "https://github.com/JaimeZepeda08/Chess-Python",
       image: "",
-      filters: ["SD", "python"],
+      filters: ["SD"],
       download: "downloads/Chess.zip",
     },
     {
@@ -219,7 +204,7 @@ export default function Home() {
       skills: ["Java", "MiniMax", "OOP"],
       url: "https://github.com/JaimeZepeda08/Chess-Java",
       image: "",
-      filters: ["SD", "java"],
+      filters: ["SD"],
     },
     {
       title: "Tetris",
@@ -228,7 +213,7 @@ export default function Home() {
       skills: ["Python", "Pygame"],
       url: "https://github.com/JaimeZepeda08/Tetris",
       image: "",
-      filters: ["SD", "python"],
+      filters: ["SD"],
       download: "downloads/Tetris.zip",
     },
     {
@@ -238,7 +223,7 @@ export default function Home() {
       skills: ["Python", "Pygame", "NEAT"],
       url: "https://github.com/JaimeZepeda08/Dino",
       image: "",
-      filters: ["ML", "python"],
+      filters: ["ML"],
       media: [
         [
           "videos/dino-train.mov",
@@ -253,7 +238,7 @@ export default function Home() {
       skills: ["R", "Linear Regression"],
       url: "/rat-analysis.html",
       image: "",
-      filters: ["ML", "r"],
+      filters: ["ML"],
     },
     {
       title: "Snake",
@@ -262,7 +247,7 @@ export default function Home() {
       skills: ["Python", "Pygame", "A*"],
       url: "https://github.com/JaimeZepeda08/Snake",
       image: "",
-      filters: ["SD", "python"],
+      filters: ["SD"],
       media: [["/videos/snake.mov", "AI agent using A* to play the game"]],
       download: "downloads/Snake.zip",
     },
@@ -273,7 +258,7 @@ export default function Home() {
       skills: ["Python", "Pygame"],
       url: "https://github.com/JaimeZepeda08/2048",
       image: "",
-      filters: ["SD", "python"],
+      filters: ["SD"],
       media: [["videos/2048-512.mov", "Simple algorithm playing the game"]],
       download: "downloads/2048.zip",
     },
@@ -284,7 +269,7 @@ export default function Home() {
       skills: ["Python", "Pygame"],
       url: "https://github.com/JaimeZepeda08/Bubble-Trouble",
       image: "",
-      filters: ["SD", "python"],
+      filters: ["SD"],
       download: "downloads/Bubble Trouble.zip",
     },
     {
@@ -345,6 +330,13 @@ export default function Home() {
             />
 
             <FilterItem
+              name="Machine Learning"
+              condition={ML}
+              setUpFunction={turnOffAll}
+              filterFunction={setML}
+            />
+
+            <FilterItem
               name="Software Development"
               condition={SD}
               setUpFunction={turnOffAll}
@@ -363,48 +355,6 @@ export default function Home() {
               condition={MD}
               setUpFunction={turnOffAll}
               filterFunction={setMD}
-            />
-
-            <FilterItem
-              name="Machine Learning"
-              condition={ML}
-              setUpFunction={turnOffAll}
-              filterFunction={setML}
-            />
-
-            <FilterItem
-              name="React"
-              condition={react}
-              setUpFunction={turnOffAll}
-              filterFunction={setReact}
-            />
-
-            <FilterItem
-              name="Python"
-              condition={python}
-              setUpFunction={turnOffAll}
-              filterFunction={setPython}
-            />
-
-            <FilterItem
-              name="Java"
-              condition={java}
-              setUpFunction={turnOffAll}
-              filterFunction={setJava}
-            />
-
-            <FilterItem
-              name="Swift"
-              condition={swift}
-              setUpFunction={turnOffAll}
-              filterFunction={setSwift}
-            />
-
-            <FilterItem
-              name="R"
-              condition={r}
-              setUpFunction={turnOffAll}
-              filterFunction={setR}
             />
           </div>
         </FadeIn>
