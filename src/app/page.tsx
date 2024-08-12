@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <div className="flex flex-wrap justify-center items-center p-10 mx-20">
       {/* photo and bio paragraph */}
-      <Reveal width="w-full">
+      <Reveal width="w-full" delay={0.5}>
         <div className="flex items-center justify-center">
           <div className={`${block_1}`}>
             <CircleImage />
@@ -74,7 +74,7 @@ export default function Home() {
       </Reveal>
 
       {/* links to github and projects */}
-      <Reveal width={`${block_full}`} delay={0.2}>
+      <Reveal width={`${block_full}`} delay={0.5}>
         <div
           className={`bg-green-700/10 p-5 my-8 rounded-lg shadow-xl text-center`}
         >
@@ -93,7 +93,7 @@ export default function Home() {
       </Reveal>
 
       {/* running section */}
-      <Reveal width="w-full">
+      <Reveal width="w-full" delay={0.5}>
         <div className="flex items-center justify-center">
           <div className={`${block_2}`}>
             <p className="text-3xl">
